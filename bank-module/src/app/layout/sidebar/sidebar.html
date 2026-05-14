@@ -1,105 +1,138 @@
-<nav class="flex flex-col gap-2 w-72 h-full">
-  <!-- Dashboard -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-violet-100 text-violet-600 font-medium transition-all duration-300"
-  >
-    <lucide-icon [img]="LayoutDashboard" class="w-5 h-5"></lucide-icon>
+<aside
+  class="h-screen bg-white border-r border-slate-200 transition-all duration-300 overflow-hidden"
+  [class.w-[260px]]="!collapsed()"
+  [class.w-[72px]]="collapsed()"
+>
+  <nav class="flex flex-col gap-2 w-72 h-full">
 
-    <span>Dashboard</span>
-  </a>
+    @if (!collapsed()) {
+    <!-- CREDIT CARD SECTION -->
+    <p class="mt-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
+      Bank
+    </p>}
 
-  <!-- Transactions -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="ArrowLeftRight" class="w-5 h-5"></lucide-icon>
+    <!-- Dashboard -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-violet-100 text-violet-600 font-medium transition-all duration-300"
+    >
+      <lucide-icon [img]="LayoutDashboard" class="w-5 h-5"></lucide-icon>
 
-    <span>Transações</span>
-  </a>
+      @if (!collapsed()) {
+      <span>Dashboard</span>}
+    </a>
 
-  <!-- Schedule -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="CalendarClock" class="w-5 h-5"></lucide-icon>
+    <!-- Transactions -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="ArrowLeftRight" class="w-5 h-5"></lucide-icon>
 
-    <span>Agendamento</span>
-  </a>
+      @if (!collapsed()) {
+      <span>Transações</span>}
+    </a>
 
-  <!-- History -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="History" class="w-5 h-5"></lucide-icon>
+    <!-- Schedule -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="CalendarClock" class="w-5 h-5"></lucide-icon>
 
-    <span>Histórico</span>
-  </a>
+      @if (!collapsed()) {
+      <span>Agendamento</span>}
+    </a>
 
-  <!-- CREDIT CARD SECTION -->
-  <p
-    class="mt-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400"
-  >
-    Cartão de Crédito
-  </p>
+    <!-- History -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="History" class="w-5 h-5"></lucide-icon>
 
-  <!-- Cards -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="CreditCard" class="w-5 h-5"></lucide-icon>
+      @if (!collapsed()) {
+      <span>Histórico</span>}
+    </a>
 
-    <span>Cartão</span>
-  </a>
+    @if (!collapsed()) {
+    <!-- CREDIT CARD SECTION -->
+    <p class="mt-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
+      Cartão de Crédito
+    </p>}
 
-  <!-- EXPENSE CONTROL -->
-  <p
-    class="mt-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400"
-  >
-    Controle de Gastos
-  </p>
+    <!-- Cards -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="CreditCard" class="w-5 h-5"></lucide-icon>
 
-  <!-- Expenses -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="BadgeDollarSign" class="w-5 h-5"></lucide-icon>
+      @if (!collapsed()) {
+      <span>Cartão</span>}
+    </a>
 
-    <span>Gastos</span>
-  </a>
+    @if (!collapsed()) {
+    <!-- EXPENSE CONTROL -->
+    <p class="mt-4 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
+      Controle de Gastos
+    </p>
+  }
+    <!-- Expenses -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="BadgeDollarSign" class="w-5 h-5"></lucide-icon>
 
-  <!-- Categories -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="Tags" class="w-5 h-5"></lucide-icon>
+      @if (!collapsed()) {
+      <span>Gastos</span>}
+    </a>
 
-    <span>Categorias</span>
-  </a>
+    <!-- Categories -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="Tags" class="w-5 h-5"></lucide-icon>
 
-  <!-- Reports -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="FileBarChart2" class="w-5 h-5"></lucide-icon>
+      @if (!collapsed()) {
+      <span>Categorias</span>}
+    </a>
 
-    <span>Relatórios</span>
-  </a>
+    @if (!collapsed()) {
+    <!-- Reports -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="FileBarChart2" class="w-5 h-5"></lucide-icon>
 
-  <!-- Limits -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="TriangleAlert" class="w-5 h-5"></lucide-icon>
+      
+      <span>Relatórios</span>
+    </a>
 
-    <span>Limites</span>
-  </a>
+    <!-- Limits -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="TriangleAlert" class="w-5 h-5"></lucide-icon>
 
-  <!-- Export -->
-  <a
-    class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
-  >
-    <lucide-icon [img]="Download" class="w-5 h-5"></lucide-icon>
+      
+      <span>Limites</span>
+    </a>}
 
-    <span>Exportar Dados</span>
-  </a>
-</nav>
+    <!-- Export -->
+    <a
+      class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-all duration-300"
+    >
+      <lucide-icon [img]="Download" class="w-5 h-5"></lucide-icon>
+
+      @if (!collapsed()) {
+        <span>Exportar Dados</span>
+      }
+      
+    </a>
+  </nav>
+
+  
+<button
+  (click)="toggleSidebar()"
+  class="absolute bottom-5 right-[-12px] bg-white border border-slate-200 rounded-full p-2 shadow-sm"
+>
+  <lucide-icon [img]="PanelLeftClose" class="w-4 h-4"></lucide-icon>
+</button>
+</aside>
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 import {
   LucideAngularModule,
@@ -13,7 +13,8 @@ import {
   FileBarChart2,
   BadgeDollarSign,
   Download,
-  TriangleAlert
+  TriangleAlert,
+  PanelLeftClose 
 } from 'lucide-angular';
 
 @Component({
@@ -46,4 +47,12 @@ export class Sidebar {
   readonly Download = Download;
 
   readonly TriangleAlert = TriangleAlert;
+
+  readonly PanelLeftClose = PanelLeftClose;
+
+  collapsed = signal(false);
+
+  toggleSidebar() {
+    this.collapsed.update(value => !value);
+  }
 }
