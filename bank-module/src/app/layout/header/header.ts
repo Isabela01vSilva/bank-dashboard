@@ -8,5 +8,4 @@ import { Component, Input } from '@angular/core';
 export class Header {
   @Input() title: string = '';
   @Input() subtitle: string = '';
-  @Input() component?: string;
 }
