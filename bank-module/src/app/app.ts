@@ -1,18 +1,10 @@
 import { Component, signal } from '@angular/core';
-import {
-  CalendarClock,
-  LayoutDashboard,
-  CreditCard,
-  ChartColumn,
-  LucideAngularModule,
-  Settings,
-  ArrowLeftRight,
-} from 'lucide-angular';
 import { Sidebar } from "./layout/sidebar/sidebar";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [LucideAngularModule, Sidebar],
+  imports: [Sidebar, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
