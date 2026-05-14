@@ -12,8 +12,10 @@ import {
   BadgeDollarSign,
   Download,
   TriangleAlert,
-  PanelLeftClose,
-  PanelRightClose,
+  ArrowLeftToLine,
+  ArrowRightFromLine,
+  Wallet,
+
 } from 'lucide-angular';
 import { MenuGroup } from './menu.interface';
 
@@ -25,6 +27,7 @@ import { MenuGroup } from './menu.interface';
 })
 export class Sidebar {
   menuGroups: MenuGroup[] = [
+
     {
       title: 'Bank',
       items: [
@@ -52,8 +55,9 @@ export class Sidebar {
     },
   ];
 
-  readonly PanelLeftClose = PanelLeftClose;
-  readonly PanelRightClose = PanelRightClose;
+  readonly ArrowLeftToLine = ArrowLeftToLine;
+  readonly ArrowRightFromLine  = ArrowRightFromLine;
+  readonly Wallet = Wallet;
 
   collapsed = signal(false);
 
