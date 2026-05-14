@@ -1,12 +1,23 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {
+  CalendarClock,
+  LayoutDashboard,
+  CreditCard,
+  ChartColumn,
+  LucideAngularModule,
+  Settings,
+  ArrowLeftRight,
+} from 'lucide-angular';
+import { Sidebar } from "./layout/sidebar/sidebar";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [LucideAngularModule, Sidebar],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
+
+
   protected readonly title = signal('bank-module');
 }
