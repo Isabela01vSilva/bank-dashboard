@@ -6,16 +6,16 @@ import {
   CalendarClock,
   ArrowLeftRight,
   CreditCard,
-  ChartColumn,
-  Settings,
   History,
   Tags,
   FileBarChart2,
   BadgeDollarSign,
   Download,
   TriangleAlert,
-  PanelLeftClose 
+  PanelLeftClose,
+  PanelRightClose,
 } from 'lucide-angular';
+import { MenuGroup } from './menu.interface';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,35 +24,40 @@ import {
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-  readonly LayoutDashboard = LayoutDashboard;
-
-  readonly ArrowLeftRight = ArrowLeftRight;
-
-  readonly CalendarClock = CalendarClock;
-
-  readonly CreditCard = CreditCard;
-
-  readonly ChartColumn = ChartColumn;
-
-  readonly Settings = Settings;
-
-  readonly History = History;
-  
-  readonly Tags = Tags;
-
-  readonly FileBarChart2 = FileBarChart2;
-
-  readonly BadgeDollarSign = BadgeDollarSign;
-
-  readonly Download = Download;
-
-  readonly TriangleAlert = TriangleAlert;
+  menuGroups: MenuGroup[] = [
+    {
+      title: 'Bank',
+      items: [
+        { label: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
+        { label: 'Transações', icon: ArrowLeftRight, route: '/transactions' },
+        { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
+        { label: 'Histórico', icon: History, route: '/history' },
+      ],
+    },
+    {
+      title: 'Cartões',
+      items: [
+        { label: 'Cartão', icon: CreditCard, route: '/cards' },
+      ]
+    },
+    {
+      title: 'Controle de Gastos',
+      items: [
+        { label: 'Gastos', icon: BadgeDollarSign, route: '/budgets' },
+        { label: 'Categorias', icon: Tags, route: '/settings' },
+        { label: 'Relatórios', icon: FileBarChart2, route: '/reports' },
+        { label: 'Limites', icon: TriangleAlert, route: '/limits' },
+        { label: 'Exportar', icon: Download, route: '/export' },
+      ],
+    },
+  ];
 
   readonly PanelLeftClose = PanelLeftClose;
+  readonly PanelRightClose = PanelRightClose;
 
   collapsed = signal(false);
 
   toggleSidebar() {
-    this.collapsed.update(value => !value);
+    this.collapsed.update((value) => !value);
   }
 }
