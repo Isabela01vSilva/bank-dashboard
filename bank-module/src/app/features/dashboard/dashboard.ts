@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Header } from '../../layout/header/header';
-import { LucideAngularModule, Search, Bell } from 'lucide-angular';
+import { LucideAngularModule, Search, Bell, Eye, EyeOff } from 'lucide-angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,4 +11,12 @@ import { LucideAngularModule, Search, Bell } from 'lucide-angular';
 export class Dashboard {
   readonly Search = Search;
   readonly Bell = Bell;
+  readonly Eye = Eye;
+  readonly EyeOff = EyeOff;
+
+  isBalanceVisible = true;
+
+  toggleVisibility() {
+    this.isBalanceVisible = !this.isBalanceVisible;
+  }
 }
