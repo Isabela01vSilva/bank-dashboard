@@ -1,39 +1,42 @@
-<app-header title="Olá, João" subtitle="Aqui está o resumo da sua conta">
-  <button
-    class="w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-all"
-  >
-    <lucide-icon [img]="Search" class="w-4 h-4 text-slate-500"></lucide-icon>
-  </button>
-
-  <!-- NOTIFICATION -->
-  <button
-    class="relative w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-all"
-  >
-    <lucide-icon [img]="Bell" class="w-4 h-4 text-slate-500"></lucide-icon>
-  </button>
-</app-header>
-
-<div
-  class="w-full rounded-3xl bg-gradient-to-r from-purple-600 to-indigo-800 p-7 flex items-center justify-between"
->
-  <div class="flex flex-col gap-2">
-    <p class="text-slate-300 text-sm">Saldo Total</p>
-    <h2
-      class="text-3xl text-white font-bold transition-all duration-300"
-      [class.blur-sm]="!isBalanceVisible"
-      [class.opacity-70]="!isBalanceVisible"
-      [class.scale-95]="!isBalanceVisible"
+<div class="flex flex-col gap-5">
+  <app-header title="Olá, João" subtitle="Aqui está o resumo da sua conta">
+    <button
+      class="w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-all"
     >
-      <span>R$ 12.345,67</span>
-    </h2>
-    <p class="text-slate-300 text-sm">Última atualização: 10 de junho de 2024</p>
-  </div>
+      <lucide-icon [img]="Search" class="w-4 h-4 text-slate-500"></lucide-icon>
+    </button>
 
-  <button
-    (click)="toggleVisibility()"
-    class="bg-white/20 hover:bg-white/30 transition-all text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm"
+    <!-- NOTIFICATION -->
+    <button
+      class="relative w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-all"
+    >
+      <lucide-icon [img]="Bell" class="w-4 h-4 text-slate-500"></lucide-icon>
+    </button>
+  </app-header>
+
+  <!-- BALANCE CARD -->
+  <div
+    class="w-full rounded-3xl bg-gradient-to-r from-purple-600 to-indigo-800 p-7 flex flex-wrap items-center justify-between gap-5"
   >
-    <lucide-icon [img]="isBalanceVisible ? Eye : EyeOff" class="w-4 h-4"></lucide-icon>
-    <span>Ocultar</span>
-  </button>
+    <div class="flex flex-col gap-2">
+      <p class="text-slate-300 text-sm">Saldo Total</p>
+      <h2
+        class="text-3xl text-white font-bold transition-all duration-300"
+        [class.blur-sm]="!isBalanceVisible"
+        [class.opacity-70]="!isBalanceVisible"
+        [class.scale-95]="!isBalanceVisible"
+      >
+        <span>R$ 12.345,67</span>
+      </h2>
+      <p class="text-slate-300 text-sm">Última atualização: 10 de junho de 2024</p>
+    </div>
+
+    <button
+      (click)="toggleVisibility()"
+      class="bg-white/20 hover:bg-white/30 transition-all text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm"
+    >
+      <lucide-icon [img]="isBalanceVisible ? Eye : EyeOff" class="w-4 h-4"></lucide-icon>
+      <span>Ocultar</span>
+    </button>
+  </div>
 </div>
