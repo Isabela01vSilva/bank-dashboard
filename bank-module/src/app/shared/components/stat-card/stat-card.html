@@ -1,11 +1,11 @@
-<div>
-  <div>
-    <p>{{ title }}</p>
-    <h1>{{ value }}</h1>
-    <p>{{ subtitle }}</p>
+<div class="rounded-3xl bg-white p-5 flex items-center justify-between gap-5 shadow-sm">
+  <div class="flex flex-col gap-1">
+    <p class="text-slate-500 text-sm">{{ title }}</p>
+    <h1 class="text-2xl font-bold">{{ value }}</h1>
+    <p class="text-green-600 text-sm">{{ subtitle }} vs mês anterior</p>
   </div>
 
-  <div [class]="config.bg">
-    <lucide-icon [img]="config.icon"></lucide-icon>
+  <div [class]="config.bg" class="w-10 h-10 rounded-2xl flex items-center justify-center">
+    <lucide-icon [img]="config.icon" class="w-6 h-6 text-white"></lucide-icon>
   </div>
 </div>
