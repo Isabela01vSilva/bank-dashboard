@@ -26,15 +26,13 @@
 
     <!-- MENU GROUPS -->
     @for (group of menuGroups; track group.title) {
-      <p
-        class="mt-2 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400 transition-all duration-500"
-        [class.opacity-0]="collapsed()"
-        [class.max-h-0]="collapsed()"
-        [class.max-h-10]="!collapsed()"
-      >
-        {{ group.title }}
-      </p>
-
+      @if (!collapsed()) {
+        <p
+          class="mt-2 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400 transition-all duration-500"
+        >
+          {{ group.title }}
+        </p>
+      }
       @for (item of group.items; track item.label) {
         <a
           class="flex items-center px-4 py-3 rounded-2xl transition-all text-slate-600 duration-500 hover:bg-slate-100 hover:text-slate-900"
