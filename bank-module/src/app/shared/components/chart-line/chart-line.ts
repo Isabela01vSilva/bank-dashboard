@@ -28,13 +28,13 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'app-chart',
+  selector: 'app-chart-line',
   standalone: true,
   imports: [NgApexchartsModule],
-  templateUrl: './chart.html',
-  styleUrl: './chart.css',
+  templateUrl: './chart-line.html'
 })
-export class Chart {
+export class ChartLine {
+
   // Objeto principal de configuração do gráfico
   chartOptions: ChartOptions = {
     // SERIES = dados que serão exibidos no gráfico
