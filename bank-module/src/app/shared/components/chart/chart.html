@@ -1,10 +1,10 @@
-<div class="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-  <div class="flex items-center justify-between mb-4">
+<div class="min-w-0 bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+  <div class="flex items-center flex-wrap justify-between mb-4">
     <h2 class="text-lg font-semibold text-zinc-800">
       Fluxo mensal
     </h2>
 
-    <div class="flex gap-4 text-sm">
+    <div class="flex  gap-4 text-sm">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-green-600"></span>
         Entradas
@@ -18,6 +18,7 @@
   </div>
 
   <apx-chart
+    class="block w-full"
     [series]="chartOptions.series"
     [chart]="chartOptions.chart"
     [tooltip]="chartOptions.tooltip"

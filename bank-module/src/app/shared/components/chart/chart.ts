@@ -58,7 +58,10 @@ export class Chart {
       type: 'bar',
 
       // altura do gráfico
-      height: 320,
+      height: 350,
+
+      redrawOnParentResize: true,
+      redrawOnWindowResize: true,
 
       // barra de ferramentas do apexcharts
       toolbar: {
