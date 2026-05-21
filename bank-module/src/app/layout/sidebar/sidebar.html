@@ -7,12 +7,12 @@
     <!-- LOGO -->
     <div class="flex items-center gap-3 px-4 py-4 border-b border-slate-200 mb-2">
       <div
-        class=" min-w-12 min-h-12 bg-gradient-to-br from-violet-500 to-purple-800 flex items-center justify-center transition-all duration-300"
+        class="min-w-12 min-h-12 bg-gradient-to-br from-violet-500 to-purple-800 flex items-center justify-center transition-all duration-300"
         [class.rounded-full]="collapsed()"
         [class.rounded-3xl]="!collapsed()"
         [class.scale-90]="collapsed()"
       >
-        <lucide-icon [img]="Wallet" class=" text-white"></lucide-icon>
+        <lucide-icon [img]="Wallet" class="text-white"></lucide-icon>
       </div>
 
       <span
@@ -24,6 +24,7 @@
       </span>
     </div>
 
+    <!-- MENU GROUPS -->
     @for (group of menuGroups; track group.title) {
       <p
         class="mt-2 px-4 text-xs font-semibold uppercase tracking-wider text-slate-400 transition-all duration-500"
@@ -36,7 +37,7 @@
 
       @for (item of group.items; track item.label) {
         <a
-          class="flex items-center px-4 py-3 rounded-2xl transition-all duration-500 hover:bg-slate-100 hover:text-slate-900"
+          class="flex items-center px-4 py-3 rounded-2xl transition-all text-slate-600 duration-500 hover:bg-slate-100 hover:text-slate-900"
           [class.justify-center]="collapsed()"
           [class.gap-3]="!collapsed()"
         >
@@ -67,4 +68,31 @@
       </lucide-icon>
     </button>
   </div>
+
+  <!-- FOOTER -->
+  @if (!collapsed()) {
+    <div class="border-t border-slate-200 p-4 text-xs text-slate-500">
+      <div class="bg-slate-100 rounded-2xl p-3 flex items-center justify-between w-full">
+        <!-- LADO ESQUERDO -->
+        <div class="flex flex-col gap-1">
+          <!-- TÍTULO -->
+          <div class="flex items-start gap-1 mb-2">
+            <lucide-icon [img]="Landmark" class="w-4 h-4"></lucide-icon>
+            <p class="uppercase tracking-wider">Dados da conta</p>
+          </div>
+
+          <!-- INFO -->
+          <p>Ag <span class="text-slate-800 tracking-wider">0001</span></p>
+          <p>Cc <span class="text-slate-800 tracking-wider">123456-7</span></p>
+        </div>
+
+        <!-- BOTÃO COPIAR -->
+        <button
+          class="p-2 rounded-xl hover:bg-violet-100 transition flex items-center justify-center hover:text-violet-500"
+        >
+          <lucide-icon [img]="Copy" class="w-4 h-4"></lucide-icon>
+        </button>
+      </div>
+    </div>
+  }
 </aside>

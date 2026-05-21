@@ -15,6 +15,8 @@ import {
   ArrowLeftToLine,
   ArrowRightFromLine,
   Wallet,
+  Landmark,
+  Copy,
 
 } from 'lucide-angular';
 import { MenuGroup } from './menu.interface';
@@ -58,6 +60,8 @@ export class Sidebar {
   readonly ArrowLeftToLine = ArrowLeftToLine;
   readonly ArrowRightFromLine  = ArrowRightFromLine;
   readonly Wallet = Wallet;
+  readonly Landmark = Landmark;
+  readonly Copy = Copy;
 
   collapsed = signal(false);
 
