@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 
 import {
   LucideAngularModule,
@@ -17,9 +17,10 @@ import {
   Wallet,
   Landmark,
   Copy,
-
+  Check,
 } from 'lucide-angular';
 import { MenuGroup } from './menu.interface';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,7 +30,6 @@ import { MenuGroup } from './menu.interface';
 })
 export class Sidebar {
   menuGroups: MenuGroup[] = [
-
     {
       title: 'Bank',
       items: [
@@ -41,9 +41,7 @@ export class Sidebar {
     },
     {
       title: 'Cartões',
-      items: [
-        { label: 'Cartão', icon: CreditCard, route: '/cards' },
-      ]
+      items: [{ label: 'Cartão', icon: CreditCard, route: '/cards' }],
     },
     {
       title: 'Controle de Gastos',
@@ -58,10 +56,32 @@ export class Sidebar {
   ];
 
   readonly ArrowLeftToLine = ArrowLeftToLine;
-  readonly ArrowRightFromLine  = ArrowRightFromLine;
+  readonly ArrowRightFromLine = ArrowRightFromLine;
   readonly Wallet = Wallet;
   readonly Landmark = Landmark;
+
   readonly Copy = Copy;
+  readonly Check = Check;
+
+  // Dentro da classe do componente:
+  private cdr = inject(ChangeDetectorRef);
+
+  ag = '0001';
+  cc = '123456-7';
+  copied = false;
+
+  copyInfo() {
+    this.copied = true;
+
+    const text = `Ag ${this.ag} Cc ${this.cc}`;
+
+    navigator.clipboard.writeText(text);
+
+    timer(2000).subscribe(() => {
+      this.copied = false;
+      this.cdr.markForCheck(); //Avisa ao Angular que o estado mudou e precisa atualizar a view
+    });
+  }
 
   collapsed = signal(false);
 

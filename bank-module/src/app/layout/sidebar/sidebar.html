@@ -82,15 +82,25 @@
           </div>
 
           <!-- INFO -->
-          <p>Ag <span class="text-slate-800 tracking-wider">0001</span></p>
-          <p>Cc <span class="text-slate-800 tracking-wider">123456-7</span></p>
+          <p>
+            Ag <span class="text-slate-800 tracking-wider">{{ ag }}</span>
+          </p>
+          <p>
+            Cc <span class="text-slate-800 tracking-wider">{{ cc }}</span>
+          </p>
         </div>
 
         <!-- BOTÃO COPIAR -->
         <button
-          class="p-2 rounded-xl hover:bg-violet-100 transition flex items-center justify-center hover:text-violet-500"
+          (click)="copyInfo()"
+          class="p-2 rounded-xl hover:bg-violet-100 hover:text-violet-500 transition-all duration-300 flex items-center justify-center"
         >
-          <lucide-icon [img]="Copy" class="w-4 h-4"></lucide-icon>
+          <lucide-icon
+            [img]="copied ? Check : Copy"
+            class="w-4 h-4 transition-all duration-300"
+            [class.scale-125]="copied"
+            [class.text-green-500]="copied"
+          ></lucide-icon>
         </button>
       </div>
     </div>
