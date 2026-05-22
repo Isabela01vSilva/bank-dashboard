@@ -1,0 +1,57 @@
+<div class="min-w-0 h-full w-full bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+  <div class="flex justify-between">
+    <h2 class="font-semibold text-zinc-800">Transações recentes</h2>
+    <button
+      class="flex gap-1 items-center text-sm font-semibold text-violet-700 transition hover:text-violet-500 hover:border-b hover:border-b-violet-500"
+    >
+      <span>Ver todas</span>
+      <lucide-icon [img]="MoveRight" class="w-4 h-4"></lucide-icon>
+    </button>
+  </div>
+
+  <!-- Cards -->
+  <div class="space-y-4 pt-3">
+    @for (transaction of transactions; track transaction.title) {
+      <div
+        class="flex items-center gap-4 rounded-2xl bg-neutral-100 p-4 transition-all hover:bg-neutral-200"
+      >
+        <!-- ICON -->
+        <div
+          class="flex h-12 w-12 items-center justify-center rounded-2xl"
+          [ngClass]="{
+            'bg-emerald-100 text-emerald-600': transaction.type === 'income',
+
+            'bg-red-100 text-red-500': transaction.type === 'expense',
+          }"
+        >
+          <lucide-angular [img]="transaction.icon" class="h-5 w-5" />
+        </div>
+
+        <!-- INFO -->
+        <div class="flex-1">
+          <h3 class="font-semibold text-zinc-900">
+            {{ transaction.title }}
+          </h3>
+
+          <p class="text-sm text-zinc-500">{{ transaction.category }} • {{ transaction.date }}</p>
+        </div>
+
+        <!-- AMOUNT -->
+        <div
+          class="flex items-center gap-1 font-bold"
+          [ngClass]="{
+            'text-green-700': transaction.type === 'income',
+            'text-red-500': transaction.type === 'expense',
+          }"
+        >
+          <lucide-angular
+            [img]="transaction.type === 'income' ? ArrowDownLeft : ArrowUpRight"
+            class="h-4 w-4"
+          />
+
+          {{ formatCurrency(transaction.amount) }}
+        </div>
+      </div>
+    }
+  </div>
+</div>
