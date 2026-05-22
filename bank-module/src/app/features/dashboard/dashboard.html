@@ -56,11 +56,8 @@
     <app-stat-card title="Economias" subtitle="+12%" value="68%" icon="default"></app-stat-card>
   </div>
 
-  <div>
-    <app-chart-line></app-chart-line>
-  </div>
-
-  <div>
-    <app-chart-donut></app-chart-donut>
+  <div class="flex flex-wrap items-stretch w-full gap-5">
+    <app-chart-line class="flex-1 md:w-[calc(60%-12px)] flex"></app-chart-line>
+    <app-chart-donut class="flex-1 md:w-[calc(60%-12px)] flex"></app-chart-donut>
   </div>
 </div>
