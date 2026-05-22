@@ -1,5 +1,8 @@
 // tailwind.config.js — Design System Bank Interface (Light Theme)
 module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
   theme: {
     extend: {
       colors: {
