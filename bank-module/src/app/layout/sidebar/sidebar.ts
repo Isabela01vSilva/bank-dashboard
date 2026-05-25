@@ -21,10 +21,11 @@ import {
 } from 'lucide-angular';
 import { MenuGroup } from './menu.interface';
 import { timer } from 'rxjs';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
