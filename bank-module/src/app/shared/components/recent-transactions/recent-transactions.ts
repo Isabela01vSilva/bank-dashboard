@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MoveRight,
@@ -25,6 +25,9 @@ interface Transaction {
   templateUrl: './recent-transactions.html',
 })
 export class RecentTransactions {
+  showButton = input(false);
+  buttonClick = output<void>()
+
   readonly MoveRight = MoveRight;
 
   readonly BriefcaseBusiness = BriefcaseBusiness;
