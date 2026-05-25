@@ -88,5 +88,8 @@ export class ChartDonut {
   // LEGEND
   legend: ApexLegend = {
     show: true,
+    position: 'bottom',
+    horizontalAlign: 'center',
+    fontSize: '14px',
   };
 }
