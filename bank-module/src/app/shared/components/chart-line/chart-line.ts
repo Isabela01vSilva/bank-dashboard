@@ -59,6 +59,7 @@ export class ChartLine {
 
       // altura do gráfico
       height: 350,
+      width: '100%',
 
       redrawOnParentResize: true,
       redrawOnWindowResize: true,
