@@ -1,50 +1,60 @@
-<app-header title="Transações" subtitle="Histórico completo de movimentações">
-  <!-- NOTIFICATION -->
-  <button
-    class="rounded-2xl px-4 py-1 gap-4 bg-violet-600 text-white flex items-center justify-center hover:bg-violet-500 transition-all"
-  >
-    <lucide-icon [img]="Plus" class="w-4 h-4"></lucide-icon>
-    <span>Nova transação</span>
-  </button>
-</app-header>
+<div class="flex flex-col gap-4">
+  <app-header title="Transações" subtitle="Histórico completo de movimentações">
+    <!-- Botão Nova TRANSAÇÃO -->
+    <button
+      class="flex min-h-9 items-center gap-2 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+    >
+      <lucide-icon [img]="Plus" class="w-4 h-4"></lucide-icon>
+      <span>Nova transação</span>
+    </button>
+  </app-header>
 
-<div class="flex justify-between gap-2">
-  <div class="flex bg-slate-200 rounded-2xl w-full items-center px-3 gap-2">
-    <lucide-icon [img]="Search" class="w-4 h-4 text-slate-600"></lucide-icon>
-    <input
-      type="text"
-      class="w-full outline-none focus:outline-none focus:ring-0"
-      placeholder="Buscar transação..."
-    />
+  <!-- Local de Pesquisa/Filtro -->
+  <div class="flex flex-wrap justify-between gap-2">
+    <!-- Campo de Busca -->
+    <div class="flex h-9 flex-1 items-center gap-2 rounded-xl bg-secondary px-3">
+      <lucide-icon [img]="Search" class="h-4 w-4 text-muted-foreground"></lucide-icon>
+      <input
+        type="text"
+        class="flex-1 bg-transparent text-sm placeholder:text-muted-foreground focus:outline-none"
+        placeholder="Buscar transação..."
+      />
+    </div>
+
+    <!-- Buscar -->
+    <div class="flex gap-3">
+      <button
+        class="flex h-9 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-muted-foreground hover:text-foreground"
+      >
+        <lucide-icon [img]="Filter" class="w-4 h-4"></lucide-icon>
+        <span>Filtrar</span>
+      </button>
+      <button
+        class="flex h-9 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-muted-foreground hover:text-foreground"
+      >
+        <lucide-icon [img]="Upload" class="w-4 h-4"></lucide-icon>
+        <span>Exportar</span>
+      </button>
+    </div>
   </div>
 
-  <!-- Buscar -->
-  <div class="flex gap-3">
-    <button class="flex gap-2 items-center bg-slate-200 rounded-2xl px-4 py-1 text-slate-600">
-      <lucide-icon [img]="Filter" class="w-4 h-4"></lucide-icon>
-      <span>Filtrar</span>
+  <!-- Botoes filtrar -->
+  <div class="w-full grid grid-cols-3 bg-secondary p-1 rounded-xl px-4 py-1 text-slate-600">
+    <button class="rounded-lg px-4 py-2 text-sm font-medium bg-card text-foreground shadow-sm">
+      <span>Todas</span>
     </button>
-    <button class="flex gap-2 items-center bg-slate-200 rounded-2xl px-4 py-1 text-slate-600">
-      <lucide-icon [img]="Upload" class="w-4 h-4"></lucide-icon>
-      <span>Exportar</span>
+    <button
+      class="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
+    >
+      <span>Entradas</span>
+    </button>
+    <button
+      class="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
+    >
+      <span>Saídas</span>
     </button>
   </div>
-</div>
 
-<!-- Botoes filtrar -->
-<div class="w-full grid grid-cols-3 mt-5 bg-slate-200 rounded-2xl px-4 py-1 text-slate-600">
-  <button class="bg-white shadow-sm rounded-2xl p-2 font-medium">
-    <span>Todas</span>
-  </button>
-  <button>
-    <span>Entradas</span>
-  </button>
-  <button>
-    <span>Saídas</span>
-  </button>
-</div>
-
-<!-- Transição -->
-<div class="mt-4">
+  <!-- Transição -->
   <app-recent-transactions></app-recent-transactions>
 </div>

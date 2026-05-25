@@ -1,4 +1,4 @@
-<div class="min-w-0 h-full w-full bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+<div class="bg-card border border-border shadow-card rounded-2xl p-5">
   <div class="flex justify-between">
     <h2 class="font-semibold text-zinc-800">Transações recentes</h2>
     @if (showButton()) {
@@ -15,28 +15,28 @@
   <!-- Cards -->
   <div class="space-y-4 pt-3">
     @for (transaction of transactions; track transaction.title) {
-      <div
-        class="flex items-center gap-4 rounded-2xl bg-neutral-100 p-4 transition-all hover:bg-neutral-200"
-      >
+      <div class="flex items-center gap-4 rounded-xl bg-secondary/50 px-4 py-3 hover:bg-secondary">
         <!-- ICON -->
         <div
-          class="flex h-12 w-12 items-center justify-center rounded-2xl"
+          class="flex h-10 w-10 items-center justify-center rounded-xl "
           [ngClass]="{
-            'bg-emerald-100 text-emerald-600': transaction.type === 'income',
+            'bg-success/10 text-success': transaction.type === 'income',
 
-            'bg-red-100 text-red-500': transaction.type === 'expense',
+            'bg-expense/10 text-expense': transaction.type === 'expense',
           }"
         >
-          <lucide-angular [img]="transaction.icon" class="h-5 w-5" />
+          <lucide-angular [img]="transaction.icon" class="h-4 w-4" />
         </div>
 
         <!-- INFO -->
-        <div class="flex-1">
-          <h3 class="font-semibold text-zinc-900">
+        <div class="flex-1 min-w-0">
+          <h3 class="text-sm font-medium">
             {{ transaction.title }}
           </h3>
 
-          <p class="text-sm text-zinc-500">{{ transaction.category }} • {{ transaction.date }}</p>
+          <p class="text-xs text-muted-foreground">
+            {{ transaction.category }} • {{ transaction.date }}
+          </p>
         </div>
 
         <!-- AMOUNT -->
@@ -51,8 +51,7 @@
             [img]="transaction.type === 'income' ? ArrowDownLeft : ArrowUpRight"
             class="h-4 w-4"
           />
-
-          {{ formatCurrency(transaction.amount) }}
+          <span class="text-sm font-semibold"> {{ formatCurrency(transaction.amount) }}</span>
         </div>
       </div>
     }
