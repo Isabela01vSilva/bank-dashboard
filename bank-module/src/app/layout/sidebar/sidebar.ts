@@ -34,7 +34,7 @@ export class Sidebar {
     {
       title: 'Bank',
       items: [
-        { label: 'Dashboard', icon: LayoutDashboard, route: '/dashboard' },
+        { label: 'Dashboard', icon: LayoutDashboard, route: '' },
         { label: 'Transações', icon: ArrowLeftRight, route: '/transactions' },
         { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
         { label: 'Histórico', icon: History, route: '/history' },

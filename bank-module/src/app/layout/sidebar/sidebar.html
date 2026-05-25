@@ -36,7 +36,7 @@
       @for (item of group.items; track item.label) {
         <a
           [routerLink]="item.route"
-          routerLinkActive="bg-primary text-primary-foreground shadow-sm"
+          routerLinkActive="text-violet-700 bg-violet-100 hover:bg-violet-200 hover:text-violet-800 hover:font-semibold"
           [routerLinkActiveOptions]="{ exact: true }"
 
           class="flex items-center px-4 py-3 rounded-2xl transition-all text-slate-600 duration-500 hover:bg-slate-100 hover:text-slate-900"
