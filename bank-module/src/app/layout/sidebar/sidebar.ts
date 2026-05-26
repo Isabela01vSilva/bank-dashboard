@@ -36,11 +36,16 @@ export class Sidebar {
       items: [
         { label: 'Dashboard', icon: LayoutDashboard, route: '' },
         { label: 'Transações', icon: ArrowLeftRight, route: '/transactions' },
-        /* { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
-        { label: 'Histórico', icon: History, route: '/history' }, */
       ],
     },
-    /* {
+   /*  {
+      title: 'Agendamento',
+      items: [
+        { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
+        { label: 'Histórico', icon: History, route: '/history' },
+      ]
+    },
+    {
       title: 'Cartões',
       items: [{ label: 'Cartão', icon: CreditCard, route: '/cards' }],
     },
