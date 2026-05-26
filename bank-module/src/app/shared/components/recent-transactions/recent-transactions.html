@@ -1,5 +1,5 @@
 <div class="bg-card border border-border shadow-card rounded-2xl p-5">
-  <div class="flex justify-between">
+  <div class="flex justify-between items-center mb-3">
     <h2 class="font-semibold text-zinc-800">Transações recentes</h2>
     @if (showButton()) {
       <button
@@ -10,6 +10,14 @@
         <lucide-icon [img]="MoveRight" class="w-4 h-4"></lucide-icon>
       </button>
     }
+    @if (showButtonExportar()) {
+      <button
+        class="flex h-9 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-muted-foreground hover:text-foreground"
+      >
+        <lucide-icon [img]="Upload" class="w-4 h-4"></lucide-icon>
+        <span>Exportar</span>
+      </button>
+    }
   </div>
 
   <!-- Cards -->
@@ -18,7 +26,7 @@
       <div class="flex items-center gap-4 rounded-xl bg-secondary/50 px-4 py-3 hover:bg-secondary">
         <!-- ICON -->
         <div
-          class="flex h-10 w-10 items-center justify-center rounded-xl "
+          class="flex h-10 w-10 items-center justify-center rounded-xl"
           [ngClass]="{
             'bg-success/10 text-success': transaction.type === 'income',
 

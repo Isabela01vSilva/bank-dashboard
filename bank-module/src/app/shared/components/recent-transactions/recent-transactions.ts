@@ -9,6 +9,7 @@ import {
   CarTaxiFront,
   ArrowDownLeft,
   ArrowUpRight,
+  Upload,
 } from 'lucide-angular';
 
 interface Transaction {
@@ -26,7 +27,10 @@ interface Transaction {
 })
 export class RecentTransactions {
   showButton = input(false);
-  buttonClick = output<void>()
+  buttonClick = output<void>();
+  showButtonExportar = input(false);
+
+  readonly Upload = Upload;
 
   readonly MoveRight = MoveRight;
 
@@ -79,7 +83,7 @@ export class RecentTransactions {
       type: 'expense',
       icon: CarTaxiFront,
     },
-  ]
+  ];
 
   formatCurrency(value: number): string {
     return value.toLocaleString('en-US', {
@@ -87,4 +91,5 @@ export class RecentTransactions {
       currency: 'USD',
     });
   }
+
 }

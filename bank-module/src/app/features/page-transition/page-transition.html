@@ -29,12 +29,6 @@
         <lucide-icon [img]="Filter" class="w-4 h-4"></lucide-icon>
         <span>Filtrar</span>
       </button>
-      <button
-        class="flex h-9 items-center gap-2 rounded-xl border border-border bg-card px-3 text-xs font-medium text-muted-foreground hover:text-foreground"
-      >
-        <lucide-icon [img]="Upload" class="w-4 h-4"></lucide-icon>
-        <span>Exportar</span>
-      </button>
     </div>
   </div>
 
@@ -56,5 +50,5 @@
   </div>
 
   <!-- Transição -->
-  <app-recent-transactions></app-recent-transactions>
+  <app-recent-transactions [showButtonExportar]="true"></app-recent-transactions>
 </div>
