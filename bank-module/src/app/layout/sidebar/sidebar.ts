@@ -36,11 +36,11 @@ export class Sidebar {
       items: [
         { label: 'Dashboard', icon: LayoutDashboard, route: '' },
         { label: 'Transações', icon: ArrowLeftRight, route: '/transactions' },
-        { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
-        { label: 'Histórico', icon: History, route: '/history' },
+        /* { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
+        { label: 'Histórico', icon: History, route: '/history' }, */
       ],
     },
-    {
+    /* {
       title: 'Cartões',
       items: [{ label: 'Cartão', icon: CreditCard, route: '/cards' }],
     },
@@ -53,7 +53,7 @@ export class Sidebar {
         { label: 'Limites', icon: TriangleAlert, route: '/limits' },
         { label: 'Exportar', icon: Download, route: '/export' },
       ],
-    },
+    }, */
   ];
 
   readonly ArrowLeftToLine = ArrowLeftToLine;
