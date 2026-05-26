@@ -1,0 +1,54 @@
+<div class="relative">
+  <button
+    (click)="op.toggle($event)"
+    class="flex items-center gap-2 rounded-2xl border border-zinc-200 px-4 py-2 hover:bg-zinc-50 transition"
+  >
+    <i class="pi pi-filter"></i>
+    <span>Filtrar</span>
+  </button>
+
+  <p-popover #op>
+    <div class="w-[380px] p-2">
+      <h2 class="text-xl font-semibold mb-5 bg-white">Filtros</h2>
+
+      <div class="rounded-3xl border border-zinc-200 p-5 bg-white">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <i class="pi pi-calendar text-zinc-500"></i>
+
+            <span class="font-medium"> Período </span>
+          </div>
+
+          <i class="pi pi-chevron-up text-sm"></i>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <button
+            class="flex items-center justify-between rounded-2xl bg-violet-100 px-4 py-3 text-violet-600"
+          >
+            <div class="flex items-center gap-2">
+              <i class="pi pi-clock"></i>
+              <span>Todo período</span>
+            </div>
+
+            <i class="pi pi-check"></i>
+          </button>
+
+          <button
+            class="flex items-center gap-2 rounded-2xl px-4 py-3 hover:bg-zinc-100 transition"
+          >
+            <i class="pi pi-calendar"></i>
+            Hoje
+          </button>
+
+          <button
+            class="flex items-center gap-2 rounded-2xl px-4 py-3 hover:bg-zinc-100 transition"
+          >
+            <i class="pi pi-calendar"></i>
+            Esta semana
+          </button>
+        </div>
+      </div>
+    </div>
+  </p-popover>
+</div>
