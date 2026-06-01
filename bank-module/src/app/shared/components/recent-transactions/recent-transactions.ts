@@ -1,5 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { TransferenciaService } from './../../../services/transferencia';
+import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import {
   MoveRight,
   LucideAngularModule,
@@ -11,6 +13,7 @@ import {
   ArrowUpRight,
   Upload,
 } from 'lucide-angular';
+import { Transferencia } from '../../../features/page-transition/models/transferencia';
 
 interface Transaction {
   title: string;
@@ -41,6 +44,11 @@ export class RecentTransactions {
 
   readonly ArrowDownLeft = ArrowDownLeft;
   readonly ArrowUpRight = ArrowUpRight;
+
+  private transferenciaService = inject(TransferenciaService);
+
+  transferencias: Transferencia[] = [];
+  
 
   transactions: Transaction[] = [
     {
