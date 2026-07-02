@@ -22,6 +22,22 @@ O backend é responsável por:
 
 ---
 
+# 🔗 Backend & Regras de Negócio
+
+Este frontend consome a API do projeto [Bank Isabela](https://github.com/Isabela01vSilva/bank), 
+desenvolvida em Java + Spring Boot.
+
+**Toda regra de negócio (validações, fluxos, status de conta, cálculos, etc.) é definida no backend.**
+O frontend não deve reimplementar ou divergir dessas regras — apenas refletir e respeitar o que a API expõe.
+
+Documentação de referência no repositório do backend:
+
+- [`docs/regras-negocio.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/regras-negocio.md) — regras de negócio detalhadas
+- [`docs/modelo-dados.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/modelo-dados.md) — modelo de dados / entidades
+- [`docs/roadmap.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/roadmap.md) — fases já concluídas (RF001–RF019)
+
+---
+
 # ✨ Visão do Projeto
 
 A aplicação foi projetada seguindo princípios de:
