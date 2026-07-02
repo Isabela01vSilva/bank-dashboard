@@ -1,27 +1,10 @@
-import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
-
-import {
-  LucideAngularModule,
-  LayoutDashboard,
-  CalendarClock,
-  ArrowLeftRight,
-  CreditCard,
-  History,
-  Tags,
-  FileBarChart2,
-  BadgeDollarSign,
-  Download,
-  TriangleAlert,
-  ArrowLeftToLine,
-  ArrowRightFromLine,
-  Wallet,
-  Landmark,
-  Copy,
-  Check,
-} from 'lucide-angular';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Icons } from '../../shared/icon/icons.const';
 import { MenuGroup } from './menu.interface';
 import { timer } from 'rxjs';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-sidebar',
@@ -30,68 +13,37 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
+  readonly Icons = Icons;
+
   menuGroups: MenuGroup[] = [
     {
       title: 'Bank',
       items: [
-        { label: 'Dashboard', icon: LayoutDashboard, route: '' },
-        { label: 'Transações', icon: ArrowLeftRight, route: '/transactions' },
+        { label: 'Dashboard', icon: Icons.LayoutDashboard, route: '' },
+        { label: 'Consulta de Conta', icon: Icons.Wallet, route: '/account' },
+        { label: 'Transações', icon: Icons.ArrowLeftRight, route: '/transactions' },
       ],
     },
-   /*  {
-      title: 'Agendamento',
-      items: [
-        { label: 'Agendamentos', icon: CalendarClock, route: '/schedules' },
-        { label: 'Histórico', icon: History, route: '/history' },
-      ]
-    },
-    {
-      title: 'Cartões',
-      items: [{ label: 'Cartão', icon: CreditCard, route: '/cards' }],
-    },
-    {
-      title: 'Controle de Gastos',
-      items: [
-        { label: 'Gastos', icon: BadgeDollarSign, route: '/budgets' },
-        { label: 'Categorias', icon: Tags, route: '/settings' },
-        { label: 'Relatórios', icon: FileBarChart2, route: '/reports' },
-        { label: 'Limites', icon: TriangleAlert, route: '/limits' },
-        { label: 'Exportar', icon: Download, route: '/export' },
-      ],
-    }, */
   ];
 
-  readonly ArrowLeftToLine = ArrowLeftToLine;
-  readonly ArrowRightFromLine = ArrowRightFromLine;
-  readonly Wallet = Wallet;
-  readonly Landmark = Landmark;
-
-  readonly Copy = Copy;
-  readonly Check = Check;
-
-  // Dentro da classe do componente:
-  private cdr = inject(ChangeDetectorRef);
+  private destroyRef = inject(DestroyRef);
 
   ag = '0001';
   cc = '123456-7';
-  copied = false;
+  copied = signal(false);
 
-  copyInfo() {
-    this.copied = true;
+  copyInfo(): void {
+    this.copied.set(true);
+    navigator.clipboard.writeText(`Ag ${this.ag} Cc ${this.cc}`);
 
-    const text = `Ag ${this.ag} Cc ${this.cc}`;
-
-    navigator.clipboard.writeText(text);
-
-    timer(2000).subscribe(() => {
-      this.copied = false;
-      this.cdr.markForCheck(); //Avisa ao Angular que o estado mudou e precisa atualizar a view
-    });
+    timer(2000)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.copied.set(false));
   }
 
   collapsed = signal(false);
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     this.collapsed.update((value) => !value);
   }
 }
