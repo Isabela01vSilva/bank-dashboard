@@ -2,11 +2,12 @@
 
 🚧 Em desenvolvimento
 
----
-
 # 🚀 Tecnologias
 
 Angular 21 · TypeScript · TailwindCSS · Angular Material · RxJS · NgRx
+
+Protótipo visual e telas iniciais gerados com [Lovable](https://lovable.dev/preview/wBayThaBL1t0Fz79A0ADGboGr7fA0WTf),
+usado como ferramenta de design/prototipação.
 
 ---
 
