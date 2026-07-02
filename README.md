@@ -1,198 +1,65 @@
 # Bank Interface
 
-Sistema financeiro moderno desenvolvido com Angular e arquitetura de Micro Frontends.
-
-O projeto simula uma plataforma bancária completa com módulos independentes para autenticação, controle financeiro, agendamentos, gastos e cartão de crédito.
-
----
-# Backend da Aplicação
-
-Este projeto possui integração com o backend da [bank-backend](https://github.com/Isabela01vSilva/bank.git) desenvolvido em Java com Spring Boot.
-
-O backend é responsável por:
-
-- Autenticação JWT
-- Controle de usuários
-- Transações financeiras
-- Agendamentos
-- Controle de gastos
-- Integração com banco de dados
-- APIs REST
-- Regras de negócio financeiras
-
----
-
-# 🔗 Backend & Regras de Negócio
-
-Este frontend consome a API do projeto [Bank Isabela](https://github.com/Isabela01vSilva/bank), 
-desenvolvida em Java + Spring Boot.
-
-**Toda regra de negócio (validações, fluxos, status de conta, cálculos, etc.) é definida no backend.**
-O frontend não deve reimplementar ou divergir dessas regras — apenas refletir e respeitar o que a API expõe.
-
-Documentação de referência no repositório do backend:
-
-- [`docs/regras-negocio.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/regras-negocio.md) — regras de negócio detalhadas
-- [`docs/modelo-dados.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/modelo-dados.md) — modelo de dados / entidades
-- [`docs/roadmap.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/roadmap.md) — fases já concluídas (RF001–RF019)
-
----
-
-# ✨ Visão do Projeto
-
-A aplicação foi projetada seguindo princípios de:
-
-- Micro Frontends
-- Arquitetura escalável
-- Design System moderno
-- UX inspirada em fintechs
-- Separação de domínios
-- Integração com microsserviços
-- Segurança com JWT e OAuth
-
----
-
-# 🧩 Arquitetura
-
-```bash
-bank
-├── bank-module
-├── schedule-module
-├── expense-control-module
-├── credit-card-module
-└── export-module
-```
+🚧 Em desenvolvimento
 
 ---
 
 # 🚀 Tecnologias
 
-- Angular 21
-- TypeScript
-- TailwindCSS
-- Angular Material
-- RxJS
+Angular 21 · TypeScript · TailwindCSS · Angular Material · RxJS · NgRx
 
 ---
 
-## 💰 Bank
+Sistema financeiro moderno desenvolvido com Angular, simulando uma plataforma bancária
+completa com módulos para autenticação, controle financeiro, agendamentos, gastos e
+cartão de crédito.
 
-Módulo principal responsável pelas operações financeiras.
+Projeto de estudo avançado de Angular, UX/UI para fintechs, integração com APIs Java
+Spring e boas práticas enterprise.
 
-### Funcionalidades
-
-- Controle de saldo
-- Entradas e saídas
-- Histórico financeiro
-- Dashboard
-- Relatórios
-
----
-
-## 📅 Schedule
-
-Microserviço responsável pelos agendamentos financeiros.
-
-### Funcionalidades
-
-- Agendamentos futuros
-- Controle de status
-- Histórico de execuções
+> 📝 **Nota:** o projeto começou desenhado com arquitetura de Micro Frontends, mas essa
+> abordagem foi abandonada por adicionar complexidade desnecessária para o escopo atual.
+> Os "módulos" abaixo são módulos/features do Angular dentro de uma aplicação única.
 
 ---
 
-## 📊 Expense Control
+# 🔗 Backend
 
-Controle de gastos pessoais.
+Consome a API do [Bank Isabela](https://github.com/Isabela01vSilva/bank) (Java + Spring Boot),
+responsável por autenticação JWT, usuários, transações, agendamentos, gastos e todas as
+regras de negócio financeiras.
 
-### Funcionalidades
+**Toda regra de negócio é definida no backend.** O frontend reflete e respeita o que a
+API expõe, sem reimplementar ou divergir dessas regras.
 
-- Categorias personalizadas
-- Metas financeiras
-- Limites de gastos
-- Relatórios analíticos
+- [`docs/regras-negocio.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/regras-negocio.md)
+- [`docs/modelo-dados.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/modelo-dados.md)
+- [`docs/roadmap.md`](https://github.com/Isabela01vSilva/bank/blob/main/docs/roadmap.md)
 
 ---
 
-## 💳 Credit Card
+# 🧩 Módulos
 
-Gerenciamento de cartão de crédito.
-
-### Funcionalidades
-
-- Fatura
-- Limite disponível
-- Controle de compras
-- Categorias de despesas
+```bash
+src/app
+├── bank            # saldo, entradas/saídas, histórico, dashboard, relatórios
+├── schedule         # agendamentos futuros, status, histórico de execuções
+├── expense-control  # categorias, metas, limites, relatórios analíticos
+├── credit-card      # fatura, limite, compras, categorias de despesas
+└── export
+```
 
 ---
 
 # 🛣️ Roadmap
 
-## Fase 1
-
-- Saldo
-- Transações
-- Dashboard inicial
-
-## Fase 2
-
-- Agendamentos
-- Histórico financeiro
-
-## Fase 3
-
-- Controle de gastos
-- Metas financeiras
-- Relatórios
-
-## Fase 4
-
-- Cartão de crédito
-- Exportação Excel
-- Analytics avançado
-
----
-
-# 📚 Arquitetura Técnica
-
-O projeto possui documentação técnica detalhada da arquitetura Angular e autenticação.
-
-## Inclui
-
-- Fluxo JWT
-- Google OAuth
-- Guards
-- Interceptors
-- NgRx
-- Estrutura compartilhada
-- Segurança
-- Integração com Spring Security
-
----
-
-# ⚙️ Status
-
-🚧 Projeto em desenvolvimento.
+Fases, requisitos e decisões de UX em [`docs/roadmap.md`](docs/roadmap.md), sincronizado
+com o [roadmap do backend](https://github.com/Isabela01vSilva/bank/blob/main/docs/roadmap.md).
 
 ---
 
 # 📁 Documentação
 
-- `/docs/auth-architecture.md`
-- `/docs/frontend-architecture.md`
-- `/docs/roadmap.md`
-
----
-
-# 🎯 Objetivo
-
-Este projeto foi desenvolvido para estudo avançado de:
-
-- Angular
-- Arquitetura Frontend
-- Micro Frontends
-- UX/UI
-- Sistemas financeiros
-- Integração com Java Spring
-- Boas práticas enterprise
+- [`docs/auth-architecture.md`](docs/auth-architecture.md) — fluxo JWT, Google OAuth, Guards, Interceptors, segurança
+- [`docs/frontend-architecture.md`](docs/frontend-architecture.md) — estrutura Angular, NgRx, estrutura compartilhada
+- [`docs/roadmap.md`](docs/roadmap.md) — fases e requisitos
