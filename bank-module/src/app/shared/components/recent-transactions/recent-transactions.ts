@@ -1,5 +1,5 @@
 import { TransferenciaService } from './../../../services/transferencia';
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
@@ -28,7 +28,7 @@ interface Transaction {
   imports: [LucideAngularModule, CommonModule],
   templateUrl: './recent-transactions.html',
 })
-export class RecentTransactions {
+export class RecentTransactions implements OnInit {
   showButton = input(false);
   buttonClick = output<void>();
   showButtonExportar = input(false);
@@ -48,7 +48,23 @@ export class RecentTransactions {
   private transferenciaService = inject(TransferenciaService);
 
   transferencias: Transferencia[] = [];
-  
+
+  ngOnInit(): void {
+    this.carregarTransferencias();
+  }
+
+  carregarTransferencias(): void {
+    this.transferenciaService
+      .listar()
+      .subscribe({
+        next: (dados) => {
+          this.transferencias = dados;
+        },
+        error: (erro) => {
+          console.error(erro);
+        }
+      });
+  }
 
   transactions: Transaction[] = [
     {
